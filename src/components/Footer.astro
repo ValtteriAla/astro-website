@@ -1,0 +1,18 @@
+---
+import Socials from './Socials.astro'
+const today = new Date();
+---
+
+<footer>
+	&copy; {today.getFullYear()} Valtteri Alastalo. All rights reserved.
+	<Socials className="footer" />
+</footer>
+<style>
+	footer {
+		padding: 2em 1em 2em 1em;
+		background: linear-gradient(var(--gray-gradient)) no-repeat;
+		color: var(--theme-secondary-color);
+		text-align: center;
+	}
+
+</style>
