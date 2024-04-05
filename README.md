@@ -45,3 +45,8 @@ No
 ### My modifications
 
 I started by stripping of the index page. I want to keep the header and footer though. First I plan to add light/dark theme
+
+#### 1. Adding react components
+
+Just go through this [https://docs.astro.build/en/guides/integrations-guide/react/](https://docs.astro.build/en/guides/integrations-guide/react/) but there is automatic install command: `npx astro add react`
+

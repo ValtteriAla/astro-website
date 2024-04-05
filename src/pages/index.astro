@@ -3,6 +3,8 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import ReactCard from '../components/react/Card.jsx'
+import SvelteCard from '../components/react/Card.svelte'
 ---
 
 <!doctype html>
@@ -13,7 +15,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<main>
-
+			<ReactCard client:visible title="This is a preline UI Card"
+				description="This card was rendered using React (Card.jsx)"
+				className="max-w-96"
+				link={{href: "/blog", name:"To blog"}}	
+					/>
+					<SvelteCard client:visible title="This is a preline UI Card"
+					description="This card was rendered using Svelte (Card.svelte)"
+					className="max-w-96"
+					link={{href: "/blog", name:"To blog"}}	
+						/>
 		</main>
 		<Footer />
 	</body>

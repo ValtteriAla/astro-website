@@ -117,6 +117,10 @@ p {
 	margin-bottom: 1em;
 	color: var(--theme-text-color)
 }
+
+li {
+	color: var(--theme-text-color)
+}
 .prose p {
 	margin-bottom: 2em;
 }

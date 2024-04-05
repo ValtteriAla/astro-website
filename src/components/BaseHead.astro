@@ -3,6 +3,7 @@
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
 
+
 interface Props {
 	title: string;
 	description: string;
@@ -49,9 +50,6 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <!-- Dark/Light theme -->
 <script is:inline>
 const theme = (() => {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme');
-    }
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       return 'dark';
     }
@@ -67,3 +65,6 @@ const theme = (() => {
   window.localStorage.setItem('theme', theme);
 
 </script>
+
+<!-- Preline.js -->
+<script is:inline src="../../node_modules/preline/preline.js"></script>
