@@ -1,26 +1,14 @@
-import React from "react";
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    const {title, description, link, className, image={src: ""}} = this.props
-
-    let defaultClass = "flex flex-col bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] "
-    
-    if (className) {
-        defaultClass += `${className}`
-    }
-    
-    return (
+<template>
       <div className={defaultClass}>
-        {image.src && (<img
+
+       <img
+          v-if="image.src"
           className="w-full max-h-48 rounded-t-xl"
           src={image.src}
           alt="Image Description"
-        />)}
+        />
+      
+  
 
         <div className="p-4 md:p-5">
           <h3 className="text-lg font-bold text-gray-800 dark:text-white">
@@ -39,7 +27,16 @@ class App extends React.Component {
 
         </div>
       </div>
-    );
-  }
-}
-export default App;
+  </template>
+  
+  <script setup>
+
+  const props = defineProps({
+    title: String,
+    description: String,
+    link: String,
+    className: String,
+    image: {src: String},
+    })
+
+  </script>

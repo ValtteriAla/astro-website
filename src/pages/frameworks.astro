@@ -1,0 +1,55 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ReactCard from "../components/react/Card.jsx";
+import SvelteCard from "../components/react/Card.svelte";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={"Frameworks"} description={"Testing different UI frameworks supported by Astro"} />
+  </head>
+  <body>
+    <Header />
+    <main>
+
+    <div class="mb-10 text-center">
+    <h4>Astro supported UI Frameworks</h4>
+    <div class="flex gap-10 flex-wrap max-w-72 justify-center m-auto">
+        <a href="https://docs.astro.build/en/guides/integrations-guide/alpinejs/">alpinejs</a>
+        <a href="https://docs.astro.build/en/guides/integrations-guide/lit/">lit</a>
+        <a href="https://docs.astro.build/en/guides/integrations-guide/preact/">preact</a>
+        <a href="https://docs.astro.build/en/guides/integrations-guide/react/">react</a>
+        <a href="https://docs.astro.build/en/guides/integrations-guide/solid-js/">solid</a>
+        <a href="https://docs.astro.build/en/guides/integrations-guide/svelte/">svelte</a>
+        <a href="https://docs.astro.build/en/guides/integrations-guide/vue/">vue</a>
+    </div>
+    </div>
+
+    <div class="example-cards text-center">
+    <h4>Examples</h4>
+	<div class="wrapper flex gap-10 flex-wrap justify-center">
+      <ReactCard
+        client:visible
+        title="This is a preline UI Card"
+        description="This card was rendered using React (Card.jsx)"
+        className="max-w-96 min-w-72 flex-1"
+        image={{src: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"}}
+        link={{ href: "/blog", name: "To blog" }}
+      />
+      <SvelteCard
+        client:visible
+        title="This is a preline UI Card"
+        description="This card was rendered using Svelte (Card.svelte)"
+        className="max-w-96"
+        image={{src: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/498px-Svelte_Logo.svg.png"}}
+        link={{ href: "/blog", name: "To blog" }}
+      />
+	</div>
+</div>
+    </main>
+    <Footer />
+  </body>
+</html>
