@@ -1,5 +1,5 @@
 ---
-import Socials from './Socials.astro'
+import Socials from '@components/Socials.astro'
 const today = new Date();
 ---
 
@@ -9,6 +9,8 @@ const today = new Date();
 </footer>
 <style>
 	footer {
+		grid-column: 1/13;
+ 		grid-row: 16;
 		padding: 2em 1em 2em 1em;
 		background: linear-gradient(var(--gray-gradient)) no-repeat;
 		color: var(--theme-secondary-color);

@@ -1,7 +1,6 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import Socials from './Socials.astro'
-import { SITE_TITLE } from '../consts';
+import HeaderLink from '@components/HeaderLink.astro';
+import Socials from '@components/Socials.astro'
 ---
 
 <header>
@@ -19,6 +18,10 @@ import { SITE_TITLE } from '../consts';
 </header>
 <style>
 	header {
+		grid-area: "hd";
+		grid-column: 1/13;
+		height:78px;
+		grid-row: 1;
 		margin: 0;
 		padding: 0 1em;
 		background: var(--theme-header-bg);
