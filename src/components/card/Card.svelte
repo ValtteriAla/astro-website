@@ -4,7 +4,7 @@
     export let description
     export let link
     export let image = {src: ""}
-    let defaultClass = "flex flex-1 min-w-72 flex-col bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] "
+    let defaultClass = "flex flex-1 p-5 min-w-72 flex-col bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] "
     
     if (className) {
         defaultClass += `${className}`

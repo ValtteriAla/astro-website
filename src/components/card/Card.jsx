@@ -8,7 +8,7 @@ class App extends React.Component {
   render() {
     const {title, description, link, className, image={src: ""}} = this.props
 
-    let defaultClass = "flex flex-col bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] "
+    let defaultClass = "flex flex-col p-5 bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] "
     
     if (className) {
         defaultClass += `${className}`

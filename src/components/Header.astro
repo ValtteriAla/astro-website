@@ -6,8 +6,8 @@ import { SITE_TITLE } from '../consts';
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
+		<a href="/"><img src="blog-placeholder-about.jpg" alt="Logo" class="w-16 h-9 min-w-16"/></a>
+		<div class="internal-links ml-auto mr-auto justify-center text-sm leading-10 overflow-x-auto min-w-56 sm:text-xl ">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
@@ -39,7 +39,7 @@ import { SITE_TITLE } from '../consts';
 		justify-content: space-between;
 	}
 	nav a {
-		padding: 1em 0.5em;
+		padding: 1em 0.2em;
 		color: var(--theme-text-color);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
@@ -52,9 +52,5 @@ import { SITE_TITLE } from '../consts';
 	.social-links a {
 		display: flex;
 	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
+
 </style>
