@@ -1,12 +1,21 @@
 ---
 import BaseLayout from "@layouts/Base.astro"
+
+import Test from "@components/Test.svelte"
+
+
 ---
 
 <BaseLayout>
-	<div class="wrapper flex gap-10">
-
-	</div>
+	<main>
+	<Test client:load></Test>
+</main>
 </BaseLayout>
 
+<style>
+  main {
+    grid-column: 1/13;
+  }
+</style>
 
 

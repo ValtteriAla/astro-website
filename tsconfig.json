@@ -10,7 +10,10 @@
       "@assets/*": ["src/assets/*"],
       "@layouts/*": ["src/layouts/*"],
       "@styles/*": ["src/styles/*"],
-      "@content/*": ["src/content/*"]
+      "@content/*": ["src/content/*"],
+      "@lib/*": ["src/lib/*"],
+      "@scripts/*": ["src/scripts/*"],
+      "@func/*": ["src/func/*"],
     }
   }
 }
