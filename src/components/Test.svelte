@@ -3,19 +3,6 @@
   import Skeleton from "@components/Skeletons.svelte";
   import { createClient } from "@supabase/supabase-js";
 
-  const characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-  function generateString(length) {
-    let result = "";
-    const charactersLength = characters.length;
-    for (let i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-
-    return result;
-  }
-
   let chatMessage = "";
   let pageVisitChannel = null;
   let supabase = null;
@@ -26,15 +13,11 @@
 
   let createConnection = true;
   if (createConnection) {
-    const userStatus = {
-      user: `user-${generateString(4)}`,
-      online_at: new Date().toISOString(),
-    };
+
 
     supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     pageVisitChannel = supabase.channel("page-visit");
-    console.log("hm");
 
     pageVisitChannel
       .on(
@@ -45,18 +28,7 @@
       .on("broadcast", { event: "message" }, (payload) =>
         messageReceived(payload)
       )
-      .on("presence", { event: "sync" }, () => {
-        const newState = pageVisitChannel.presenceState();
-        console.log("sync", newState);
-      })
-      .subscribe(async (status) => {
-        if (status !== "SUBSCRIBED") {
-          return;
-        }
-
-        const presenceTrackStatus = await pageVisitChannel.track(userStatus);
-        console.log(presenceTrackStatus);
-      });
+      .subscribe();
 
     createConnection = false;
   }
@@ -75,8 +47,8 @@
   }
 
   function getPageVisitCount(response, pageVisitCount) {
-    if (pageVisitCount) return `--value:${pageVisitCount};`;
-    return `--value:${response.data[0].page_visit_count};`;
+    if (pageVisitCount) return pageVisitCount
+    return response.data[0].page_visit_count
   }
 
   function getChatBubbleClass(message) {
@@ -110,12 +82,19 @@
   {#await dataPromise}
     <Skeleton basicText={true} />
   {:then response}
-    <div>
-      Page visit count: <span class="countdown font-mono text-2xl">
-        <span style={getPageVisitCount(response, pageVisitCount)}></span>
-      </span>
-    </div>
-    {JSON.stringify(response.data, undefined, 2)}
+
+      <div class="stats shadow">
+  
+        <div class="stat">
+          <div class="stat-title">Total Page Views</div>
+          <div class="stat-value">{ getPageVisitCount(response, pageVisitCount)}</div>
+        </div>
+        
+      </div>
+
+      <div>{JSON.stringify(response.data, undefined, 2)}</div>
+
+    
   {:catch err}
     Error: {JSON.stringify(err, undefined, 2)}
   {/await}
