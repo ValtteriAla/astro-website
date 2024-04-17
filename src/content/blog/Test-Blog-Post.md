@@ -9,3 +9,7 @@ heroImage: /favicon.svg
 # TinaCMS
 
 > nice
+
+Edit
+
+![](/blog-placeholder-about.jpg)
