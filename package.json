@@ -33,6 +33,7 @@
   "devDependencies": {
     "@tinacms/cli": "^1.5.43",
     "@types/node": "^20.12.7",
+    "cypress": "^13.7.3",
     "daisyui": "^4.10.1"
   }
 }
